@@ -1,0 +1,447 @@
+/* Draggable HUD Styles */
+.draggable-hud {
+  background: rgba(15, 15, 15, 0.92);
+  border: 2px solid rgba(78, 205, 196, 0.4);
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  color: white;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  min-width: 220px;
+  max-width: none;
+  width: auto;
+  transition: all 0.2s ease;
+  overflow: visible;
+}
+
+.draggable-hud:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  border-color: rgba(78, 205, 196, 0.6);
+  transform: translateY(-1px);
+}
+
+.draggable-hud.dragging {
+  transform: scale(1.03) translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  cursor: grabbing;
+  border-color: rgba(78, 205, 196, 0.8);
+}
+
+.draggable-hud.collapsed {
+  min-width: auto;
+  max-width: none;
+  width: auto;
+}
+
+/* Header */
+.hud-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: rgba(30, 30, 30, 0.95);
+  border-bottom: 2px solid rgba(78, 205, 196, 0.3);
+  border-radius: 8px 8px 0 0;
+  cursor: grab;
+  user-select: none;
+  min-height: 36px;
+  position: relative;
+  z-index: 10;
+}
+
+.hud-header:active {
+  cursor: grabbing;
+}
+
+.hud-header:hover {
+  background: rgba(40, 40, 40, 0.95);
+}
+
+.hud-title {
+  font-weight: bold;
+  color: #4ecdc4;
+  font-size: 14px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  flex: 1;
+  margin-right: 10px;
+}
+
+.hud-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.hud-collapse-btn {
+  background: rgba(135, 206, 235, 0.2);
+  border: 1px solid rgba(135, 206, 235, 0.4);
+  color: #87ceeb;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  min-width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hud-collapse-btn:hover {
+  background: rgba(135, 206, 235, 0.3);
+  border-color: rgba(135, 206, 235, 0.6);
+  transform: scale(1.05);
+}
+
+.hud-collapse-btn:active {
+  transform: scale(0.95);
+}
+
+.hud-drag-handle {
+  color: #888;
+  font-size: 14px;
+  cursor: grab;
+  padding: 4px 6px;
+  line-height: 1;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  transition: all 0.2s ease;
+  min-width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hud-drag-handle:hover {
+  color: #bbb;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.hud-drag-handle:active {
+  cursor: grabbing;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Content */
+.hud-content {
+  padding: 14px 16px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 0 0 8px 8px;
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+  width: auto;
+  min-width: 0;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hud-content > * {
+  white-space: normal;
+  flex-shrink: 0;
+}
+
+.hud-content:empty {
+  padding: 0;
+}
+
+/* Layout Controls */
+.hud-layout-controls {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: 2000;
+}
+
+.layout-toggle-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(78, 205, 196, 0.9);
+  border: 2px solid rgba(78, 205, 196, 1);
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.layout-toggle-btn:hover {
+  background: rgba(78, 205, 196, 1);
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.layout-controls-panel {
+  position: absolute;
+  bottom: 60px;
+  right: 0;
+  background: rgba(15, 15, 15, 0.95);
+  border: 2px solid rgba(78, 205, 196, 0.4);
+  border-radius: 10px;
+  padding: 18px;
+  min-width: 280px;
+  backdrop-filter: blur(12px);
+  color: white;
+  font-family: 'Courier New', monospace;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.layout-controls-panel h4 {
+  margin: 0 0 12px 0;
+  color: #4ecdc4;
+  font-size: 14px;
+  text-align: center;
+}
+
+.layout-controls-panel h5 {
+  margin: 12px 0 6px 0;
+  color: #87ceeb;
+  font-size: 12px;
+}
+
+.layout-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 11px;
+  transition: all 0.2s ease;
+  margin: 2px;
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+.layout-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.reset-btn {
+  background: rgba(255, 107, 107, 0.2);
+  border-color: rgba(255, 107, 107, 0.4);
+}
+
+.reset-btn:hover {
+  background: rgba(255, 107, 107, 0.3);
+}
+
+.save-btn {
+  background: rgba(76, 175, 80, 0.2);
+  border-color: rgba(76, 175, 80, 0.4);
+}
+
+.save-btn:hover {
+  background: rgba(76, 175, 80, 0.3);
+}
+
+.load-btn {
+  background: rgba(33, 150, 243, 0.2);
+  border-color: rgba(33, 150, 243, 0.4);
+  margin-bottom: 4px;
+}
+
+.load-btn:hover {
+  background: rgba(33, 150, 243, 0.3);
+}
+
+.layout-save {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.layout-save input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-family: inherit;
+}
+
+.layout-save input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.layout-save input:focus {
+  outline: none;
+  border-color: #4ecdc4;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.layout-load {
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+/* Keyboard hints styling */
+.hint-group {
+  margin-bottom: 8px;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hint-group:last-child {
+  border-bottom: none;
+}
+
+.key {
+  background: rgba(78, 205, 196, 0.2);
+  border: 1px solid rgba(78, 205, 196, 0.4);
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-right: 6px;
+  font-size: 10px;
+  color: #4ecdc4;
+  font-weight: bold;
+}
+
+/* HUD item styling */
+.hud-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  padding: 3px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  min-width: 0;
+  flex-shrink: 0;
+}
+
+.hud-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.hud-label {
+  color: #87ceeb;
+  font-size: 11px;
+}
+
+.hud-value {
+  color: #00ff00;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.hud-warning {
+  color: #ff6b6b;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .draggable-hud {
+    font-size: 11px;
+    min-width: 180px;
+    max-width: none;
+    width: auto;
+  }
+  
+  .hud-header {
+    padding: 8px 12px;
+    min-height: 32px;
+  }
+  
+  .hud-title {
+    font-size: 12px;
+  }
+  
+  .hud-content {
+    padding: 12px;
+  }
+  
+  .layout-controls-panel {
+    min-width: 200px;
+    padding: 12px;
+  }
+  
+  .layout-toggle-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .draggable-hud {
+    font-size: 10px;
+    min-width: 160px;
+    max-width: none;
+    width: auto;
+  }
+  
+  .hud-title {
+    font-size: 11px;
+  }
+  
+  .layout-controls-panel {
+    bottom: 45px;
+    right: -10px;
+    min-width: 180px;
+  }
+}
+
+/* Animation for smooth transitions */
+.draggable-hud {
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.draggable-hud:not(.dragging) {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Collision prevention visual feedback */
+.draggable-hud.collision-warning {
+  border-color: rgba(255, 193, 7, 0.6);
+  box-shadow: 0 0 10px rgba(255, 193, 7, 0.3);
+}
+
+/* Focus styles for accessibility */
+.hud-collapse-btn:focus,
+.layout-btn:focus,
+.layout-toggle-btn:focus {
+  outline: 2px solid #4ecdc4;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .draggable-hud {
+    background: rgba(0, 0, 0, 0.95);
+    border-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .hud-header {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .layout-btn {
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .draggable-hud,
+  .layout-btn,
+  .layout-toggle-btn {
+    transition: none;
+  }
+}

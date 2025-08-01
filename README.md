@@ -120,11 +120,33 @@ cellular-sleep-voyage/
 │   │   └── tutorial/        # Onboarding and help
 │   ├── stores/              # Zustand state management
 │   ├── types/               # TypeScript definitions
+│   ├── hooks/               # Custom React hooks
 │   └── utils/               # Asset management and utilities
 ├── docs/                    # Comprehensive documentation
+│   ├── setup/               # Installation and setup guides
+│   ├── architecture/        # System architecture documentation
+│   ├── troubleshooting/     # Problem resolution guides
+│   ├── maintenance/         # Maintenance and update procedures
+│   └── components/          # Component-specific documentation
 ├── public/                  # Static assets
 └── .kiro/specs/            # Feature specifications and tasks
 ```
+
+## 📚 Documentation
+
+### Quick Start Guides
+- **[3D Environment Setup](docs/setup/3D-Environment-Setup.md)** - Complete setup and configuration guide
+- **[Navigation System Architecture](docs/architecture/Navigation-System-Architecture.md)** - System design and component overview
+- **[Troubleshooting Guide](docs/troubleshooting/Navigation-Troubleshooting-Guide.md)** - Solutions for common issues
+- **[Maintenance Guide](docs/maintenance/Environment-Maintenance-Guide.md)** - Ongoing maintenance procedures
+
+### Component Documentation
+- **[Cellular Environment](docs/components/3d/CellularEnvironment.md)** - 3D cellular city implementation
+- **[Vessel Navigation](docs/components/3d/VesselNavigation.md)** - Microscopic vessel system
+- **[Asset System](docs/AssetSystemGuide.md)** - Asset management and optimization
+
+### Educational Framework
+- **[Mitochondrial Sleep Science for Young Minds](docs/mitochondrial-sleep-science-for-kids.md)** - Educational research foundation
 
 ## 🎯 Development Roadmap
 
@@ -138,24 +160,31 @@ cellular-sleep-voyage/
 - [x] Asset integration pipeline (SVG to WebGL conversion)
 - [x] Comprehensive documentation system
 
-### Phase 2: Core Experience 🚧 In Progress
-- [ ] Cellular environment and navigation system
+### Phase 2: Core Experience ✅ Complete
+- [x] **Cellular environment and navigation system** - Immersive 3D cellular city with districts
+- [x] **Vessel navigation system** - Microscopic vessel with WASD/touch controls
+- [x] **Environmental lighting** - Chapter-adaptive lighting and atmospheric effects
+- [x] **Draggable HUD system** - Customizable UI panels with persistence
+- [x] **Comprehensive documentation** - Setup guides, architecture docs, troubleshooting
+
+### Phase 3: Advanced Features 📋 Next
 - [ ] Chapter management and progression system
 - [ ] Tutorial and onboarding experience
 - [ ] Mitochondrial power plant system (Chapter 2)
 - [ ] Sleep pressure and ROS damage system (Chapter 3)
-
-### Phase 3: Advanced Features 📋 Planned
 - [ ] Virtual laboratory and experimental system
+
+### Phase 4: Educational Integration 🎨 Planned
 - [ ] "Why We Sleep" concepts integration
 - [ ] Evolutionary context and species comparison
 - [ ] Gamification and progress tracking system
 - [ ] Accessibility and multi-modal support
+- [ ] Educational effectiveness testing
 
-### Phase 4: Polish & Launch 🎨 Future
+### Phase 5: Production & Launch 🚀 Future
 - [ ] Performance optimization and PWA features
 - [ ] Final BioRender asset integration
-- [ ] Educational effectiveness testing
+- [ ] Cross-platform compatibility testing
 - [ ] Production deployment and distribution
 
 ## 🤝 Contributing

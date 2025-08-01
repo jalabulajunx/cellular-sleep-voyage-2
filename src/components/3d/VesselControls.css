@@ -1,0 +1,223 @@
+.vessel-touch-controls {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.movement-joystick {
+  pointer-events: auto;
+}
+
+.vertical-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+.rotation-controls {
+  display: flex;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+.control-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.control-button:active {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0.95);
+}
+
+.touch-joystick {
+  touch-action: none;
+  user-select: none;
+}
+
+.joystick-handle {
+  transition: transform 0.1s ease;
+}
+
+/* Desktop keyboard hints */
+.keyboard-hints {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  font-family: monospace;
+  font-size: 12px;
+  line-height: 1.4;
+  z-index: 1000;
+}
+
+.keyboard-hints h4 {
+  margin: 0 0 10px 0;
+  color: #4ecdc4;
+}
+
+.keyboard-hints .hint-group {
+  margin-bottom: 8px;
+}
+
+.keyboard-hints .key {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+/* Vessel HUD styles */
+.vessel-hud {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  z-index: 1000;
+  min-width: 200px;
+}
+
+.vessel-hud h4 {
+  margin: 0 0 10px 0;
+  color: #4ecdc4;
+  text-align: center;
+}
+
+.hud-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  padding: 2px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hud-label {
+  color: #87ceeb;
+}
+
+.hud-value {
+  color: #00ff00;
+  font-weight: bold;
+}
+
+.hud-warning {
+  color: #ff6b6b;
+}
+
+/* Navigation compass */
+.navigation-compass {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 80px;
+  height: 80px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  z-index: 1000;
+}
+
+.compass-needle {
+  width: 2px;
+  height: 30px;
+  background: #ff6b6b;
+  position: absolute;
+  transform-origin: bottom center;
+  transition: transform 0.3s ease;
+}
+
+.compass-directions {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.compass-direction {
+  position: absolute;
+  font-size: 12px;
+  font-weight: bold;
+  color: #4ecdc4;
+}
+
+.compass-direction.north { top: 5px; left: 50%; transform: translateX(-50%); }
+.compass-direction.east { right: 5px; top: 50%; transform: translateY(-50%); }
+.compass-direction.south { bottom: 5px; left: 50%; transform: translateX(-50%); }
+.compass-direction.west { left: 5px; top: 50%; transform: translateY(-50%); }
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .vessel-touch-controls {
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+  }
+  
+  .keyboard-hints {
+    display: none;
+  }
+  
+  .vessel-hud {
+    top: 10px;
+    left: 10px;
+    padding: 10px;
+    font-size: 12px;
+    min-width: 150px;
+  }
+  
+  .navigation-compass {
+    top: 10px;
+    right: 10px;
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .control-button {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+  
+  .touch-joystick {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .joystick-handle {
+    width: 25px;
+    height: 25px;
+  }
+}

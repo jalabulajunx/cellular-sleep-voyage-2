@@ -9,6 +9,9 @@ import { CellularEnvironment } from './components/3d/CellularEnvironment';
 import { InteractionModeIndicator } from './components/ui/ZoomLevelIndicator';
 import { CameraControlsExternal, QuickViewButtonsExternal } from './components/ui/CameraControlsExternal';
 import { NotificationSystem } from './components/ui/NotificationSystem';
+import { VesselUI } from './components/ui/VesselUI';
+import { DraggableHUD } from './components/ui/DraggableHUD';
+import { useVesselSystem } from './hooks/useVesselSystem';
 import './App.css';
 
 // Import components (we'll create these next)
@@ -17,10 +20,16 @@ import './App.css';
 // import { UIOverlay } from './components/ui/UIOverlay';
 
 function App() {
-  const { currentChapter, isPlaying } = useGameStore();
+  const { currentChapter, isPlaying, interactionMode } = useGameStore();
   const { showTutorial } = useUIStore();
   const { discoveryPoints, scientistPoints, sleepPoints } = useProgressStore();
   const cameraRef = useRef<THREE.Camera | null>(null);
+  
+  // Vessel system hook
+  const vesselSystem = useVesselSystem(
+    currentChapter, 
+    interactionMode === 'explore'
+  );
 
   useEffect(() => {
     // Initialize placeholder assets for development
@@ -74,16 +83,28 @@ function App() {
           </SceneManager>
         </Canvas>
         
-        {/* External Camera Controls */}
+        {/* External Camera Controls - Now Draggable */}
         {!showTutorial && (
           <>
-            <div style={{ position: 'absolute', right: '20px', top: '50%', transform: 'translateY(-50%)', zIndex: 300 }}>
+            <DraggableHUD
+              id="camera-controls"
+              title="Camera Controls"
+              defaultPosition={{ x: window.innerWidth - 220, y: window.innerHeight / 2 - 100 }}
+              canCollapse={true}
+              zIndex={300}
+            >
               <CameraControlsExternal visible={true} cameraRef={cameraRef} />
-            </div>
+            </DraggableHUD>
             
-            <div style={{ position: 'absolute', left: '20px', top: '50%', transform: 'translateY(-50%)', zIndex: 300 }}>
+            <DraggableHUD
+              id="quick-view-buttons"
+              title="Quick Views"
+              defaultPosition={{ x: 20, y: window.innerHeight / 2 - 100 }}
+              canCollapse={true}
+              zIndex={300}
+            >
               <QuickViewButtonsExternal cameraRef={cameraRef} />
-            </div>
+            </DraggableHUD>
           </>
         )}
 
@@ -108,7 +129,23 @@ function App() {
         {/* UI Indicators - Outside Canvas */}
         {!showTutorial && (
           <>
-            <InteractionModeIndicator />
+            <DraggableHUD
+              id="interaction-mode"
+              title="Interaction Mode"
+              defaultPosition={{ x: window.innerWidth / 2 - 100, y: 20 }}
+              canCollapse={true}
+              zIndex={200}
+            >
+              <InteractionModeIndicator />
+            </DraggableHUD>
+            
+            {/* Vessel UI - Outside Canvas */}
+            <VesselUI 
+              vesselPosition={vesselSystem.vesselPosition}
+              vesselSpeed={vesselSystem.vesselSpeed}
+              chapterId={currentChapter}
+              enabled={vesselSystem.enabled}
+            />
           </>
         )}
 

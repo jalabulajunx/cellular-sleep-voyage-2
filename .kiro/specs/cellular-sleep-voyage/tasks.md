@@ -59,25 +59,34 @@
     - _Requirements: Documentation and maintainability_
 
 - [ ] 4. Build cellular environment and navigation system
-  - [ ] 4.1 Create the main cellular city 3D environment
+  - [x] 4.1 Create the main cellular city 3D environment
     - Design and implement the cellular overview scene
     - Position organelles as city districts with proper spatial relationships
     - Add environmental lighting and atmospheric effects
     - Create smooth camera movement and navigation controls
     - _Requirements: 1.1, 1.2_
 
-  - [ ] 4.2 Implement vessel navigation and control system
+  - [x] 4.2 Implement vessel navigation and control system
     - Build microscopic vessel 3D model and controls
     - Create smooth movement with touch-friendly interface
     - Add navigation boundaries to prevent leaving cellular space
     - Implement contextual hints and navigation assistance
     - _Requirements: 1.2, 3.4_
 
-  - [ ] 4.3 Document cellular environment and navigation systems
+  - [x] 4.3 Create draggable and rearrangeable HUD system
+    - Implement draggable HUD components (Vessel Status, Camera Controls, etc.)
+    - Add HUD layout persistence using local storage
+    - Create collision detection to prevent overlapping elements
+    - Build HUD reset and preset layout options
+    - Add responsive positioning for different screen sizes
+    - _Requirements: 9.1, 9.2, 9.6_
+
+  - [x] 4.4 Document cellular environment and navigation systems
     - Create comprehensive documentation for 3D environment setup
     - Document navigation system architecture and controls
     - Add troubleshooting guide for common navigation issues
     - Create maintenance guide for environment modifications
+    - Update GitHub Readme markdown file to show current status of the project
     - _Requirements: Documentation and maintainability_
 
 - [ ] 5. Develop chapter management and progression system
@@ -100,6 +109,7 @@
     - Document assessment system design and implementation
     - Add guide for creating new chapters and learning objectives
     - Create troubleshooting guide for progression issues
+    - Update GitHub Readme markdown file to show current status of the project
     - _Requirements: Documentation and maintainability_
 
 - [ ] 6. Build tutorial system and onboarding experience
@@ -122,6 +132,7 @@
     - Document help system architecture and content management
     - Add guide for creating new tutorial content and hints
     - Create accessibility testing and maintenance guide
+    - Update GitHub Readme markdown file to show current status of the project
     - _Requirements: Documentation and maintainability_
 
 - [ ] 7. Implement mitochondrial power plant system (Chapter 2)
@@ -144,6 +155,7 @@
     - Document electron transport chain game design and mechanics
     - Add scientific accuracy guide for mitochondrial content
     - Create troubleshooting guide for game interaction issues
+    - Update GitHub Readme markdown file to show current status of the project
     - _Requirements: Documentation and maintainability_
 
 - [ ] 8. Develop sleep pressure and ROS damage system (Chapter 3)
@@ -166,6 +178,7 @@
     - Document sleep-wake cycle interface and controls
     - Add scientific accuracy guide for sleep science content
     - Create maintenance guide for visual effects and animations
+    - Update GitHub Readme markdown file to show current status of the project
     - _Requirements: Documentation and maintainability_
 
 - [ ] 9. Build virtual laboratory and experimental system
@@ -188,6 +201,7 @@
     - Document experimental scenarios and data collection methods
     - Add scientific accuracy guide for experimental content
     - Create user guide for laboratory interface and tools
+    - Update GitHub Readme markdown file to show current status of the project
     - _Requirements: Documentation and maintainability_
 
 - [ ] 10. Integrate "Why We Sleep" concepts and scientific connections
@@ -210,6 +224,7 @@
     - Document scientific connection system and educational content
     - Add scientific accuracy guide for sleep science connections
     - Create content update guide for new research integration
+    - Update GitHub Readme markdown file to show current status of the project
     - _Requirements: Documentation and maintainability_
 
 - [ ] 11. Develop evolutionary context and species comparison (Chapter 5)
@@ -232,6 +247,7 @@
     - Document species comparison interface and visualization methods
     - Add scientific accuracy guide for evolutionary content
     - Create maintenance guide for adding new species and comparisons
+    - Update GitHub Readme markdown file to show current status of the project
     - _Requirements: Documentation and maintainability_
 
 - [ ] 12. Implement gamification and progress tracking system
@@ -254,6 +270,7 @@
     - Document progress tracking architecture and data persistence
     - Add guide for creating new achievements and progression mechanics
     - Create analytics and balancing guide for gamification elements
+    - Update GitHub Readme markdown file to show current status of the project
     - _Requirements: Documentation and maintainability_
 
 - [ ] 13. Add accessibility and multi-modal support
@@ -276,6 +293,7 @@
     - Document multi-language system architecture and content management
     - Add WCAG compliance checklist and testing procedures
     - Create user guide for accessibility features and customization options
+    - Update GitHub Readme markdown file to show current status of the project
     - _Requirements: Documentation and maintainability_
 
 - [ ] 14. Optimize performance and implement PWA features
@@ -298,6 +316,7 @@
     - Document PWA architecture and offline functionality
     - Add performance monitoring and debugging guide
     - Create deployment and caching strategy documentation
+    - Update GitHub Readme markdown file to show current status of the project
     - _Requirements: Documentation and maintainability_
 
 - [ ] 15. Integrate final BioRender assets and polish
@@ -320,4 +339,5 @@
     - Create comprehensive deployment and maintenance guide
     - Add user manual and educational guide for teachers/parents
     - Create troubleshooting guide and FAQ for common issues
+    - Update GitHub Readme markdown file to show current status of the project
     - _Requirements: Documentation and maintainability_
